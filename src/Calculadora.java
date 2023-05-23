@@ -15,6 +15,7 @@ public class Calculadora extends javax.swing.JFrame {
      */
     public Calculadora() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -99,15 +100,30 @@ public class Calculadora extends javax.swing.JFrame {
 
         btnSuma.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         btnSuma.setText("+");
+        btnSuma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSumaActionPerformed(evt);
+            }
+        });
 
         btnResta.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         btnResta.setText("-");
+        btnResta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRestaActionPerformed(evt);
+            }
+        });
 
         btnDiv.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         btnDiv.setText("/");
 
         btnRaizCuadrada.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         btnRaizCuadrada.setText("√");
+        btnRaizCuadrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRaizCuadradaActionPerformed(evt);
+            }
+        });
 
         btnMulti.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         btnMulti.setText("*");
@@ -181,6 +197,32 @@ public class Calculadora extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumaActionPerformed
+        // TODO add your handling code here:
+        double num1 = Double.parseDouble(txtNumero1.getText());
+        double num2 = Double.parseDouble(txtNumero2.getText());
+        
+        txtResultado.setText(String.valueOf(num1+num2));
+        
+    }//GEN-LAST:event_btnSumaActionPerformed
+
+    private void btnRestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaActionPerformed
+        // TODO add your handling code here:
+        double num1 = Double.parseDouble(txtNumero1.getText());
+        double num2 = Double.parseDouble(txtNumero2.getText());
+        
+        txtResultado.setText(String.valueOf(num1-num2));     
+    }//GEN-LAST:event_btnRestaActionPerformed
+
+    private void btnRaizCuadradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaizCuadradaActionPerformed
+        // TODO add your handling code here:
+        double x = Double.parseDouble(txtNumero1.getText());
+        double raiz;
+        raiz=Math.sqrt(x);
+        
+        txtResultado.setText(String.valueOf(raiz));
+    }//GEN-LAST:event_btnRaizCuadradaActionPerformed
 
     /**
      * @param args the command line arguments
